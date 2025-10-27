@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/static/css/view.css">
+    <style>
+  
+    </style>
+</head>
+<body>
+     <div class="contrainer">
+        <div class="navbar">
+            <a href="/">Home</a>
+            <a href="http://127.0.0.1:5000/people">Team</a>
+            <a href="http://127.0.0.1:5000/products">Product</a>
+            <a href="http://127.0.0.1:5000/view">View</a>
+        </div>
+        
+    </div>
+    <h2>Product Dashboard</h2>
+
+    <!-- Summary Cards -->
+    <div class="cards">
+        <div class="card1">
+            <p>Total Products</p>
+            <h3>{{ total_products }}</h3>
+        </div>
+        <div class="card2">
+            <p>Total Stock</p>
+            <h3>{{ total_stock }}</h3>
+        </div>
+        <div class="card3">
+            <p>Total Value</p>
+            <h3>${{ total_value }}</h3>
+        </div>
+    </div>
+
+    <!-- Dynamic Table -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#productsTable').DataTable({
+                "pageLength": 10,
+                "lengthMenu": [5, 10, 25, 50],
+                "order": [[0, "desc"]]
+            });
+        }); 
+    </script>
+    <!DOCTYPE html>
+    <title>View Products</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+<h2>Total Quantity by Category</h2>
+<canvas id="quantityChart" width="400" height="200"></canvas>
+<script>
+    // Fetch data for chart
+    fetch('/category_quantity')
+        .then(response => response.json())
+        .then(data => {
+            const ctx = document.getElementById('quantityChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.categories,
+                    datasets: [{
+                        label: 'Total Quantity',
+                        data: data.quantities,
+                        backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true },
+                        title: { display: true, text: 'Product Quantity per Category' }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        });
+</script>
+</body>
+</html> 
