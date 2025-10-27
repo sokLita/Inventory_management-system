@@ -1,0 +1,85 @@
+.navbar{
+    width: 100%;
+    height: 50px;
+    /* padding-top: 56px; */
+    background-color: rgb(14, 98, 70);
+    display: flex;  
+    gap: 100px;                                                                             
+
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding-left: 40px;
+    margin-top: 16px;
+    
+    
+}
+
+
+.textmain{
+    /* padding-left: 100px; */
+    font-size: 24px;
+    color: white;
+    padding-left: 200px;
+    padding-top:40px;
+
+}
+.textmain p{
+    padding-left: 400px;
+    /* text-align: center; */
+}
+.textmain li{
+    margin-left: 400px
+}
+.main{
+    background-image: url(../image/image.png);
+    background-size: cover;
+    width: 100%;
+    height: 80vh;
+}
+.foodd{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.foodd img{
+    width: 200px;
+    border-radius: 10px;
+    height: 30vh;
+}
+h1{
+    text-align: center;
+}
+.clothes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.clothes img{
+    width: 200px;
+    border-radius: 10px;
+    height: 30vh;
+}
+.fruits{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.fruits img{
+    width: 200px;
+    border-radius: 10px;
+    height: 30vh;
+}
+.technology{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.technology img{
+     width: 200px;
+    border-radius: 10px;
+    height: 30vh;
+}
