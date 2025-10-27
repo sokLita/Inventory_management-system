@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/about.css">
+</head>
+
+<body>
+    <div class="contrainer">
+        <div class="navbar">
+            <a href="/">Home</a>
+            <a href="#">Team</a>
+            <a href="/products">Product</a>
+            <a href="http://127.0.0.1:5000/view">View</a>
+        </div>
+
+    </div>
+    <div class="background">
+        <h1>History</h1>
+        <p>This Website create for user can edit <br><br> delete view and buy our product <br><br> that store in the our website Our website <br><br> create by someone and create in the 20.10.2025</p>
+    </div>
+    <title>About - People List</title>
+</head>
+<body>
+    <h1>Our Team / People List</h1>
+    <p>Here are the people in our system:</p>
+    <div class="add-button">
+        <a href="/add" class="btn-add">Add New Person</a>
+    </div>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Sex</th>
+            <th>Phone</th>
+            <th>Gmail</th>
+            <th>Position</th>
+        </tr>
+          {% for person in people %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <!-- <td>{{ person.id }}</td> -->
+            <td>{{ person.name }}</td>
+            <td>{{ person.sex }}</td>
+            <td>{{ person.phone }}</td>
+            <td>{{ person.gmail }}</td>
+            <td>{{ person.position }}</td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+   
+</body>
+
+</html>
